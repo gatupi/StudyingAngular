@@ -1,0 +1,25 @@
+.jumbotron {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+button {
+  padding: 2px 15px;
+}
+
+/* .phrase-changers {
+  background-color: #f35;
+} */
+
+.phrase-changers button {
+  background-color: #f88;
+  color: #fff;
+  border-color: #f88;
+}
+
+.buttons-row {
+  display: flex;
+  /* background-color: lightblue; */
+  justify-content: space-between;
+}
