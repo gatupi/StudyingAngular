@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 
 // é necessário importar a classe também, dur...
 import { Frase } from '../shared/frase.model';
@@ -16,7 +16,7 @@ import { Heart, HeartTypes } from 'app/shared/heart.model';
   templateUrl: './painel.component.html',
   styleUrls: ['./painel.component.css']
 })
-export class PainelComponent implements OnInit {
+export class PainelComponent implements OnInit, OnChanges {
 
   public frases: Frase[] = FRASES;
   public instrucao: string = "Traduza a frase:";
@@ -29,6 +29,7 @@ export class PainelComponent implements OnInit {
   private tentativa: number = 0;
 
   constructor() {
+    console.log("construtor");
     console.log(this);
     this.resposta = "";
     this.phraseIndex = 0;
@@ -40,6 +41,11 @@ export class PainelComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("inicialização");
+  }
+
+  ngOnChanges() {
+    console.log("mudança...");
   }
 
   public get tentativasRestantes(): number {
