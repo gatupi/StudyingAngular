@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Heart, HeartTypes } from 'app/shared/heart.model';
 
 @Component({
   selector: 'app-tentativas',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TentativasComponent implements OnInit {
 
-  constructor() { }
+  @Input() public coracoes: Heart[] = [];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

@@ -2,11 +2,11 @@
   <div class="jumbotron">
     <div class="row">
       <div class="col">
-        <app-progresso></app-progresso>
+        <app-progresso [progresso]="progresso"></app-progresso>
       </div>
       <div class="col-sm-6">
         <div class="d-flex justify-content-end">
-          <app-tentativas></app-tentativas>
+          <app-tentativas [coracoes]="coracoes"></app-tentativas>
         </div>       
       </div>
     </div>
@@ -15,10 +15,11 @@
       <div class="col">
         <h6>{{ instrucao }}</h6>
         <p>{{phraseIndex + 1}}. {{frases[phraseIndex].fraseEng}}</p>
+        <p style="font-style:italic">{{isAnswered ? frases[phraseIndex].frasePtBr : null}}</p>
         <!-- <p> {{resposta}} </p> -->
 
         <div class="form-group">
-          <textarea class="form-control" rows="3" (input)="atualizaResposta($event)"></textarea> <!-- (input)="resposta = $event.target.value" -->
+          <textarea [value]="resposta" [attr.disabled]="isAnswered ? true : null" class="form-control" rows="3" (input)="atualizaResposta($event)"></textarea> <!-- (input)="resposta = $event.target.value" -->
         </div>
       </div>
     </div>
@@ -29,9 +30,10 @@
           <div class="phrase-changers">
             <button class="btn btn-primary" (click)="fraseAnterior()">Anterior</button>
             <button class="btn btn-primary" (click)="proximaFrase()">Próxima</button>
+            <p>{{respondidas}}/{{frases.length}}</p>
           </div>
           <div class="verify">
-            <button type="button" class="btn btn-primary" (click)="respostaCorreta">Verificar</button>
+            <button type="button" class="btn btn-primary" (click)="respostaCorreta" [attr.disabled]="isAnswered ? true : null">Verificar</button>
           </div>
         </div>
       </div>

@@ -1,3 +1,7 @@
-<img [src]="fullHeart">
-<img [src]="fullHeart">
-<img [src]="fullHeart">
+<!-- <img [src]="coracoes[0].image">
+<img [src]="coracoes[1].image">
+<img [src]="coracoes[2].image">
+<img [src]="coracoes[3].image">
+<img [src]="coracoes[4].image"> -->
+
+<img *ngFor="let coracao of coracoes" [src]="coracao.image" />
