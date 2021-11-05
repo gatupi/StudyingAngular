@@ -15,7 +15,7 @@ export class ProgressoComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log("mudanças em ProgressoComponent");
+    /* console.log("mudanças em ProgressoComponent"); */
   }
 
 /*   ngDoCheck() {

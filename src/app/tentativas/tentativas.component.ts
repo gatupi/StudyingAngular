@@ -11,20 +11,20 @@ export class TentativasComponent implements OnInit, OnChanges, DoCheck {
   @Input() public coracoes: Heart[] = [];
 
   constructor() {
-    console.log("construtor TentativasComponent");
-    console.log(this.coracoes);
+    /* console.log("construtor TentativasComponent");
+    console.log(this.coracoes); */
   }
 
   ngOnInit() {
-    console.log("inicialização TentativasComponent");
-    console.log(this.coracoes);
+    /* console.log("inicialização TentativasComponent");
+    console.log(this.coracoes); */
   }
 
   ngOnChanges() {
-    console.log("mudanças TentativasComponent");
+    /* console.log("mudanças TentativasComponent"); */
   }
 
   ngDoCheck() {
-    console.log("checking TentativasComponent");
+    /* console.log("checking TentativasComponent"); */
   }
 }

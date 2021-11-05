@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, EventEmitter, Output} from '@angular/core';
 
 // é necessário importar a classe também, dur...
 import { Frase } from '../shared/frase.model';
@@ -25,12 +25,14 @@ export class PainelComponent implements OnInit, OnChanges {
   public progresso: number = 0;
   public coracoes: Heart[] = [];
   public corretas: boolean[] = [];
-  public static readonly totalTentativas: number = 5;
+  public static readonly totalTentativas: number = 3;
   private tentativa: number = 0;
 
+  @Output() public encerrarJogo = new EventEmitter();
+
   constructor() {
-    console.log("construtor");
-    console.log(this);
+    /* console.log("construtor");
+    console.log(this); */
     this.resposta = "";
     this.phraseIndex = 0;
     for (let i=0; i<this.frases.length; i++)
@@ -41,11 +43,11 @@ export class PainelComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log("inicialização");
+    /* console.log("inicialização"); */
   }
 
   ngOnChanges() {
-    console.log("mudança...");
+    /* console.log("mudança..."); */
   }
 
   public get tentativasRestantes(): number {
@@ -97,16 +99,22 @@ export class PainelComponent implements OnInit, OnChanges {
       this.corretas[this.phraseIndex] = true;
       this.proximaFrase();
       this.progresso += (100 / this.frases.length);
-      alert("Resposta Correta!\nProgresso: " + this.progresso.toFixed(1) + "%");
+      /* alert("Resposta Correta!\nProgresso: " + this.progresso.toFixed(1) + "%"); */
       if (Math.round(this.progresso) == 100)
-        alert("Parabéns! Você acertou todas as questões!");
+        {
+          /* alert("Parabéns! Você acertou todas as questões!"); */
+          this.encerrarJogo.emit('victory');
+        }
     }
     else {
       this.coracoes[this.tentativa].type = HeartTypes.empty;
       this.tentativa++;
-      alert("Resposta Errada!");
+      /* alert("Resposta Errada!"); */
       if (this.tentativa == PainelComponent.totalTentativas)
-        alert("Fim de jogo!");
+        {
+          /* alert("Fim de jogo!"); */
+          this.encerrarJogo.emit('defeat');
+        }
     }
     this.resposta = "";
     // console.log(isCorrect);
@@ -121,7 +129,7 @@ export class PainelComponent implements OnInit, OnChanges {
 
     let result: number = Sum(n1, n2) + Sum(n1, n2);
 
-    console.log(result);
+    /* console.log(result); */
 
     return result;
   } // Não sei por que caralho isso aqui executa 4 vezes!

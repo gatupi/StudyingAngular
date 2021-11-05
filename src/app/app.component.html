@@ -1,3 +1,4 @@
 <!-- <h1>Learning Angular</h1> -->
 <app-topo></app-topo>
-<app-painel></app-painel>
+<app-painel *ngIf="jogoEmAndamento" (encerrarJogo)="endGame($event)"></app-painel>
+<h2 style="color: #ddd; margin-top: 40px; display: flex; justify-content: center;" *ngIf="!jogoEmAndamento">{{ won ? victoryMessage : defeatMessage }}</h2>
