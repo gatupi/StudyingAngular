@@ -1,6 +1,8 @@
 <!-- <h1>Learning Angular</h1> -->
 <app-topo></app-topo>
-<app-painel *ngIf="jogoEmAndamento" (encerrarJogo)="endGame($event)"></app-painel>
-<div style="color: #ddd; margin-top: 40px; display: flex; justify-content: center;" *ngIf="!jogoEmAndamento">
-  <h2>{{ won ? victoryMessage : defeatMessage }}</h2>
-</div>
+<app-painel *ngIf="jogoEmAndamento; else fimDeJogo" (encerrarJogo)="endGame($event)"></app-painel>
+<ng-template #fimDeJogo>
+    <div style="color: #ddd; margin-top: 40px; display: flex; justify-content: center;">
+        <h2>{{ won ? victoryMessage : defeatMessage }}</h2>
+    </div>
+</ng-template>
